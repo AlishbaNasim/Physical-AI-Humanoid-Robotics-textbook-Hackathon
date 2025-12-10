@@ -4,20 +4,75 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
+  padding: 6rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 4rem 2rem;
   }
+}
+
+.heroContent {
+  max-width: 900px;
+  margin: 0 auto;
+  color: white;
+}
+
+.hero__title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: #ecf0f1;
+  opacity: 0.9;
+}
+
+.description {
+  margin: 2rem 0;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #ecf0f1;
+  opacity: 0.85;
+}
+
+.description p {
+  margin: 0.75rem 0;
 }
 
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.button--secondary {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.button--secondary:hover {
+  background-color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  color: #2c3e50;
 }

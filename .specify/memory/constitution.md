@@ -1,55 +1,53 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+Version change: 1.0.1 -> 1.1.0
+Modified principles: Library-First, CLI Interface → Physical AI & Humanoid Robotics Book Principles
+Added sections: I. Accuracy, II. Completeness, III. Clarity, IV. Consistency, V. Reproducibility, VI. Spec-Driven Development, VII. RAG Chatbot Integration
+Removed sections: None
+Templates requiring updates:
+  - .specify/templates/plan-template.md: ✅ updated
+  - .specify/templates/spec-template.md: ✅ updated
+  - .specify/templates/tasks-template.md: ✅ updated
+  - .specify/templates/commands/sp.constitution.md: ✅ updated
+  - CLAUDE.md: ✅ updated
+  - README.md: ✅ updated
+Follow-up TODOs: None
+-->
+# Physical AI & Humanoid Robotics Book Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Accuracy
+All explanations must be based on verified robotics and simulation frameworks including ROS 2, Gazebo, NVIDIA Isaac, Unity Robotics, and Vision-Language-Action systems; All module content must be technically reliable, academically valid, and aligned with real-world humanoid robotics practices
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Completeness
+Total: 4 Modules, each containing 3–4 chapters; All chapters will later be generated topic-by-topic; Must include diagrams, step-by-step instructions, architectures, workflows, and system explanations
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Clarity
+Content must be written for advanced AI students who already know machine learning fundamentals but are new to Physical AI, humanoid control, and VLA models; Use clear, accessible language while maintaining technical precision
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Consistency
+Use a clean, modern, structured layout; Consistent tone, formatting, diagrams, headings, and terminology across all chapters; Maintain uniform architecture and design patterns throughout the Docusaurus site
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Reproducibility
+All technical modules must include runnable code samples, commands, simulation steps, and architecture diagrams; Instructions should be replicable by students without external assumptions; All examples must be tested and verified
 
-### [PRINCIPLE_6_NAME]
+### VI. Spec-Driven Development
+Entire planning, breakdown, task creation, and implementation must follow the Spec-Kit Plus workflow; All outputs must follow /sp.plan → /sp.tasks → /sp.implement → /sp.test → /sp.release
 
+### VII. RAG Chatbot Integration
+Chatbot must be embedded directly into the Docusaurus site; Should answer strictly using the book's content—no external knowledge; Must support: user selects text → chatbot answers using only that selected section; Backend uses FastAPI + Neon Postgres + Qdrant Cloud; AI reasoning uses OpenAI Agents / ChatKit
 
-[PRINCIPLE__DESCRIPTION]
+## Additional Constraints
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+All code must adhere to the best practices for web development, robotics frameworks, and AI/ML implementations. Technical content must be validated against actual ROS 2 implementations, simulation environments, and current Physical AI research.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Development Workflow
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+Code reviews are mandatory for all changes. All pull requests require at least one approval before merging. Technical content must be validated by domain experts before publication. All examples and code snippets must be tested in actual environments.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other practices. Amendments require documentation, approval, and a migration plan. All PRs/reviews must verify compliance. Use CLAUDE.md for runtime development guidance.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.1.0 | **Ratified**: 2025-12-07 | **Last Amended**: 2025-12-09

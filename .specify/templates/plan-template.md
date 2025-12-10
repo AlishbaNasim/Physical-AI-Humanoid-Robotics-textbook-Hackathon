@@ -31,7 +31,12 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- **Library-First**: Is this feature implemented as a standalone, self-contained library?
+- **CLI Interface**: Does the library expose its functionality via a CLI, using stdin/stdout for text I/O and supporting JSON/human-readable formats?
+- **Test-First (NON-NEGOTIABLE)**: Are tests written and approved BEFORE implementation (Red-Green-Refactor cycle)?
+- **Integration Testing**: Does the plan include integration tests for new library contracts, contract changes, inter-service communication, or shared schemas?
+- **Observability**: Does the plan ensure debuggability through text I/O and include structured logging?
+- **Simplicity**: Does the plan adhere to YAGNI principles, starting with the simplest viable solution?
 
 ## Project Structure
 

@@ -2,46 +2,29 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
 
-Let's discover **Docusaurus in less than 5 minutes**.
+
+# Physical AI & Humanoid Robotics
+
+## Focus and Theme: AI Systems in the Physical World. Embodied Intelligence.
+
+Goal: Bridging the gap between the digital brain and the physical body. Students apply their AI knowledge to control Humanoid Robots in simulated and real-world environments.
+
+This comprehensive guide explores the intersection of artificial intelligence and robotics, focusing on how AI systems can be applied to control and interact with physical robots, particularly humanoid robots. Through this book, you will learn about:
+
+- The fundamentals of AI in physical systems
+- ROS 2 (Robot Operating System) for robotic applications
+- Simulation environments for testing robotic AI
+- Control systems for humanoid robots
+- Vision-language-action systems for robot interaction
 
 ## Getting Started
 
-Get started by **creating a new site**.
+This book is structured into four main modules that will guide you from basic concepts to advanced implementations in humanoid robotics:
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+1. **The Robotic Nervous System (ROS 2)** - Understanding the communication and control infrastructure
+2. **The Digital Twin (Gazebo & Unity)** - Creating simulation environments for testing
+3. **The AI-Robot Brain (NVIDIA Isaac)** - Implementing AI decision-making for robots
+4. **Vision-Language-Action (VLA)** - Advanced interaction systems
 
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Each module builds upon the previous one, providing a comprehensive understanding of how to develop AI systems for humanoid robots.

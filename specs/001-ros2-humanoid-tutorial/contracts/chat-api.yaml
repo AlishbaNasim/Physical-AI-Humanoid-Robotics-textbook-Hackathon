@@ -1,0 +1,183 @@
+# API Contract: RAG Chatbot for Physical AI & Humanoid Robotics Book
+
+## Overview
+This document defines the API contracts for the Retrieval-Augmented Generation (RAG) chatbot that will provide AI-powered answers based on the book's content.
+
+## Base URL
+`https://api.physical-ai-book.com/v1`
+
+## Authentication
+All endpoints require an API key in the header:
+```
+Authorization: Bearer {API_KEY}
+```
+
+## Endpoints
+
+### POST /chat
+Initiates or continues a chat conversation with the RAG system.
+
+#### Request
+```json
+{
+  "message": "What is the role of ROS 2 in humanoid robotics?",
+  "selected_text": "ROS 2 provides the communication framework for humanoid robots...",
+  "session_id": "optional-session-id",
+  "user_id": "optional-user-id"
+}
+```
+
+#### Response
+```json
+{
+  "response": "ROS 2 serves as the robotic nervous system, providing...",
+  "sources": [
+    {
+      "content_id": "module-1-chapter-1-section-3",
+      "title": "Role of ROS 2 in Humanoid Robotics",
+      "url": "/docs/module-1/chapter-1#role-of-ros2",
+      "text": "ROS 2 provides the communication framework...",
+      "relevance_score": 0.92
+    }
+  ],
+  "session_id": "new-or-existing-session-id",
+  "timestamp": "2025-12-09T10:30:00Z"
+}
+```
+
+#### Error Responses
+- `400 Bad Request`: Invalid request format
+- `401 Unauthorized`: Invalid or missing API key
+- `429 Too Many Requests`: Rate limit exceeded
+- `500 Internal Server Error`: Server error
+
+### POST /chat/stream
+Streaming version of the chat endpoint for real-time responses.
+
+#### Request
+Same as POST /chat
+
+#### Response (Server-Sent Events)
+```
+data: {"type": "token", "content": "ROS", "index": 0}
+
+data: {"type": "token", "content": " 2", "index": 1}
+
+data: {"type": "sources", "sources": [...], "completed": true}
+```
+
+### GET /health
+Health check endpoint to verify API availability.
+
+#### Response
+```json
+{
+  "status": "healthy",
+  "timestamp": "2025-12-09T10:30:00Z",
+  "services": {
+    "vector_db": "connected",
+    "database": "connected",
+    "openai": "connected"
+  }
+}
+```
+
+### GET /content/search
+Semantic search within book content.
+
+#### Query Parameters
+- `q`: Search query (required)
+- `limit`: Number of results (default: 5, max: 20)
+- `module`: Filter by module (optional)
+
+#### Response
+```json
+{
+  "results": [
+    {
+      "content_id": "module-1-chapter-1-section-3",
+      "title": "Role of ROS 2 in Humanoid Robotics",
+      "url": "/docs/module-1/chapter-1#role-of-ros2",
+      "excerpt": "ROS 2 provides the communication framework...",
+      "relevance_score": 0.92,
+      "module": "module-1-ros2"
+    }
+  ],
+  "total": 1,
+  "query": "role of ROS 2"
+}
+```
+
+### POST /content/ingest
+Ingest book content into the vector database.
+
+#### Request
+```json
+{
+  "content_id": "module-1-chapter-1-section-1",
+  "title": "Introduction to ROS 2",
+  "content": "Full markdown content of the section...",
+  "module": "module-1-ros2",
+  "metadata": {
+    "chapter": 1,
+    "section": 1,
+    "word_count": 1200,
+    "estimated_reading_time": 5
+  }
+}
+```
+
+#### Response
+```json
+{
+  "status": "success",
+  "content_id": "module-1-chapter-1-section-1",
+  "vector_id": "vec_abc123",
+  "timestamp": "2025-12-09T10:30:00Z"
+}
+```
+
+## Data Models
+
+### ChatMessage
+```json
+{
+  "id": "msg_abc123",
+  "role": "user|assistant",
+  "content": "Message content",
+  "timestamp": "2025-12-09T10:30:00Z",
+  "sources": ["source_id_1", "source_id_2"]
+}
+```
+
+### ContentSource
+```json
+{
+  "content_id": "unique_content_identifier",
+  "title": "Content title",
+  "url": "relative_url_to_content",
+  "text": "Quoted text from source",
+  "relevance_score": 0.92,
+  "page_reference": "Module 1, Chapter 1, Section 3"
+}
+```
+
+## Rate Limits
+- Chat endpoints: 100 requests per minute per API key
+- Search endpoint: 200 requests per minute per API key
+- Ingest endpoint: 10 requests per minute per API key
+
+## Error Format
+All error responses follow this format:
+```json
+{
+  "error": {
+    "code": "ERROR_CODE",
+    "message": "Human-readable error message",
+    "details": "Additional error details if applicable"
+  }
+}
+```
+
+## Versioning
+This is version 1 of the API. Breaking changes will increment the version number in the base URL.
