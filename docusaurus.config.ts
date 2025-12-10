@@ -1,35 +1,25 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
   title: 'Physical AI & Humanoid Robotics',
   tagline: 'A comprehensive guide to ROS 2 and humanoid robotics',
   favicon: 'img/favicon.ico',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
-  // Set the production url of your site here
   url: 'https://your-username.github.io',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/my-website/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'your-username', // Usually your GitHub org/user name.
-  projectName: 'my-website', // Usually your repo name.
+  organizationName: 'your-username',
+  projectName: 'my-website',
 
   onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -40,53 +30,30 @@ const config: Config = {
       'classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          sidebarPath: require.resolve('./sidebars.js'),
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: require.resolve('./src/css/custom.css'),
         },
       } satisfies Preset.Options,
     ],
   ],
 
-  themes: [
-    // Add the layout wrapper to wrap all pages
-    [
-      '@docusaurus/theme-classic',
-      {
-        customCss: './src/css/custom.css',
-      },
-    ],
-  ],
-  clientModules: [
-    require.resolve('./src/components/LayoutWrapper/index.tsx'),
+  /**
+   *  ✅ Chatbot Plugin  
+   *  Must exist at: /src/plugins/chatbot-inject/index.js
+   */
+  plugins: [
+    require.resolve('./src/plugins/chatbot-inject'),
   ],
 
   themeConfig: {
-    // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
+
     navbar: {
       title: 'Physical AI & Humanoid Robotics',
       logo: {
@@ -101,12 +68,13 @@ const config: Config = {
           label: 'Book',
         },
         {
-          href: 'https://github.com/your-username/my-website',
+          href: 'https://github.com/AlishbaNasim/Physical-AI-Humanoid-Robotics-textbook-Hackathon/tree/main',
           label: 'GitHub',
           position: 'right',
         },
       ],
     },
+
     footer: {
       style: 'dark',
       links: [
@@ -115,35 +83,28 @@ const config: Config = {
           items: [
             {
               label: 'Introduction',
-              to: '/docs/chapter-1-introduction/01-overview',
+              to: '/docs/chapter-1-introduction/overview',
             },
           ],
         },
         {
           title: 'Community',
           items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/ros2',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
+            { label: 'Stack Overflow', href: 'https://stackoverflow.com/questions/tagged/ros2' },
+            { label: 'Discord', href: 'https://discordapp.com/invite/docusaurus' },
           ],
         },
         {
           title: 'More',
           items: [
-            {
-              label: 'GitHub',
-              href: 'https://github.com/your-username/my-website',
-            },
+            { label: 'GitHub', href: 'https://github.com/AlishbaNasim' },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Book. Built with alishbanaseem.`,
+      copyright:
+        `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Book. Built by CodeQueen.`,
     },
+
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,

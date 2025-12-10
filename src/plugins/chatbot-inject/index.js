@@ -1,9 +1,18 @@
-module.exports = function plugin(context, options) {
+module.exports = function () {
   return {
-    name: 'chatbot-inject-plugin',
-
-    getClientModules() {
-      return [require.resolve('./ChatbotInjector.jsx')];
+    name: 'chatbot-inject',
+    injectHtmlTags() {
+      return {
+        headTags: [],
+        postBodyTags: [
+          {
+            tagName: 'script',
+            innerHTML: `
+              console.log("Chatbot Loaded");
+            `,
+          },
+        ],
+      };
     },
   };
 };
