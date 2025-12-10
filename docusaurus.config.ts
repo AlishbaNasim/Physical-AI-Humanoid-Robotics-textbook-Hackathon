@@ -12,7 +12,7 @@ const config: Config = {
   },
 
   url: 'https://your-username.github.io',
-  baseUrl: '/my-website/',
+  baseUrl: '/website/docs',
 
   organizationName: 'your-username',
   projectName: 'my-website',
