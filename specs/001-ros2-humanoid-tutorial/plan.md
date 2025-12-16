@@ -1,3 +1,4 @@
+
 # Implementation Plan: Physical AI & Humanoid Robotics Book
 
 **Branch**: `001-physical-ai-book` | **Date**: 2025-12-09 | **Spec**: specs/001-ros2-humanoid-tutorial/spec.md

@@ -11,10 +11,10 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://github.com/AlishbaNasim',
-  baseUrl: '/',
+  url: 'https://AlishbaNasim.github.io',
+  baseUrl: '/my-website/',
 
-  organizationName: 'your-username',
+  organizationName: 'AlishbaNasim',
   projectName: 'my-website',
 
   onBrokenLinks: 'throw',
