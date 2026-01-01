@@ -12,7 +12,7 @@ const config: Config = {
   },
 
   url: 'https://AlishbaNasim.github.io',
-  baseUrl: '/',
+  baseUrl: '/Physical-AI-Humanoid-Robotics-textbook-Hackathon/',
 
   organizationName: 'AlishbaNasim',
   projectName: 'my-website',
